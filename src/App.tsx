@@ -10,6 +10,9 @@ import ActiveQuest from "./pages/ActiveQuest";
 import QuestComplete from "./pages/QuestComplete";
 import Badges from "./pages/Badges";
 import Community from "./pages/Community";
+import Profile from "./pages/Profile";
+import Friends from "./pages/Friends";
+import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +31,9 @@ const App = () => (
           <Route path="/quest/complete/:id" element={<QuestComplete />} />
           <Route path="/badges" element={<Badges />} />
           <Route path="/community" element={<Community />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/friends" element={<Friends />} />
+          <Route path="/chat/:friendId" element={<Chat />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
