@@ -93,7 +93,7 @@ const Home = () => {
             <div className="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center">
               <Play className="w-4 h-4 text-secondary" />
             </div>
-            <h2 className="text-xl font-bold text-foreground">Continue Quest</h2>
+            <h2 className="text-xl font-bold text-foreground">Continue Quests</h2>
           </div>
           
           <div className="space-y-3">

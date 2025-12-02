@@ -6,6 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BottomNav } from "@/components/BottomNav";
 import { useNavigate } from "react-router-dom";
+import avatarMargaret from "@/assets/avatar-margaret.jpg";
+import avatarRobert from "@/assets/avatar-robert.jpg";
+import avatarDorothy from "@/assets/avatar-dorothy.jpg";
+import avatarPatricia from "@/assets/avatar-patricia.jpg";
+import avatarLinda from "@/assets/avatar-linda.jpg";
 
 interface Friend {
   id: string;
@@ -29,22 +34,22 @@ const Friends = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const friends: Friend[] = [
-    { id: "1", name: "Margaret Wilson", avatar: "👵", status: "Just found a hummingbird!", lastActive: "2m ago", quests: 18, isOnline: true },
-    { id: "2", name: "Robert Chen", avatar: "👴", status: "Working on bird quest", lastActive: "15m ago", quests: 32, isOnline: true },
-    { id: "3", name: "Dorothy Harris", avatar: "👩‍🦳", status: "Garden exploration time", lastActive: "1h ago", quests: 12, isOnline: false },
-    { id: "4", name: "James Martinez", avatar: "👨‍🦳", status: "Photography walk", lastActive: "3h ago", quests: 25, isOnline: false },
-    { id: "5", name: "Helen Brown", avatar: "👵", status: "Butterfly watching", lastActive: "Yesterday", quests: 15, isOnline: false },
+    { id: "1", name: "Margaret Wilson", avatar: avatarMargaret, status: "Just found a hummingbird!", lastActive: "2m ago", quests: 18, isOnline: true },
+    { id: "2", name: "Robert Chen", avatar: avatarRobert, status: "Working on bird quest", lastActive: "15m ago", quests: 32, isOnline: true },
+    { id: "3", name: "Dorothy Harris", avatar: avatarDorothy, status: "Garden exploration time", lastActive: "1h ago", quests: 12, isOnline: false },
+    { id: "4", name: "James Martinez", avatar: avatarPatricia, status: "Photography walk", lastActive: "3h ago", quests: 25, isOnline: false },
+    { id: "5", name: "Helen Brown", avatar: avatarLinda, status: "Butterfly watching", lastActive: "Yesterday", quests: 15, isOnline: false },
   ];
 
   const friendRequests: FriendRequest[] = [
-    { id: "r1", name: "Susan Anderson", avatar: "👩‍🦰", mutualFriends: 3 },
-    { id: "r2", name: "William Lee", avatar: "👨‍🦲", mutualFriends: 5 },
+    { id: "r1", name: "Susan Anderson", avatar: avatarDorothy, mutualFriends: 3 },
+    { id: "r2", name: "William Lee", avatar: avatarRobert, mutualFriends: 5 },
   ];
 
   const suggestedFriends: FriendRequest[] = [
-    { id: "s1", name: "Patricia Davis", avatar: "👩‍🦱", mutualFriends: 4 },
-    { id: "s2", name: "Michael Thompson", avatar: "👨‍🦳", mutualFriends: 2 },
-    { id: "s3", name: "Barbara White", avatar: "👵", mutualFriends: 6 },
+    { id: "s1", name: "Patricia Davis", avatar: avatarPatricia, mutualFriends: 4 },
+    { id: "s2", name: "Michael Thompson", avatar: avatarRobert, mutualFriends: 2 },
+    { id: "s3", name: "Barbara White", avatar: avatarMargaret, mutualFriends: 6 },
   ];
 
   const filteredFriends = friends.filter(friend =>
@@ -101,8 +106,8 @@ const Friends = () => {
               >
                 <div className="flex items-center gap-3">
                   <div className="relative">
-                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-2xl">
-                      {friend.avatar}
+                    <div className="w-14 h-14 rounded-full overflow-hidden">
+                      <img src={friend.avatar} alt={friend.name} className="w-full h-full object-cover" />
                     </div>
                     {friend.isOnline && (
                       <div className="absolute bottom-0 right-0 w-4 h-4 bg-success rounded-full border-2 border-card" />
@@ -139,8 +144,8 @@ const Friends = () => {
               friendRequests.map((request) => (
                 <Card key={request.id} className="bg-card border-0 shadow-card p-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center text-2xl">
-                      {request.avatar}
+                    <div className="w-14 h-14 rounded-full overflow-hidden">
+                      <img src={request.avatar} alt={request.name} className="w-full h-full object-cover" />
                     </div>
                     
                     <div className="flex-1 min-w-0">
@@ -177,8 +182,8 @@ const Friends = () => {
             {suggestedFriends.map((person) => (
               <Card key={person.id} className="bg-card border-0 shadow-card p-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center text-2xl">
-                    {person.avatar}
+                  <div className="w-14 h-14 rounded-full overflow-hidden">
+                    <img src={person.avatar} alt={person.name} className="w-full h-full object-cover" />
                   </div>
                   
                   <div className="flex-1 min-w-0">
