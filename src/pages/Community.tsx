@@ -7,13 +7,16 @@ import { Button } from "@/components/ui/button";
 import cardinal from "@/assets/cardinal.jpg";
 import ladybug from "@/assets/ladybug.jpg";
 import beeLavender from "@/assets/bee-lavender.jpg";
+import avatarLinda from "@/assets/avatar-linda.jpg";
+import avatarRobert from "@/assets/avatar-robert.jpg";
+import avatarPatricia from "@/assets/avatar-patricia.jpg";
 
 const posts = [
   {
     id: 1,
     user: {
       name: "Linda Chen",
-      avatar: "LC",
+      avatar: avatarLinda,
       time: "2 hours ago"
     },
     discovery: "Northern Cardinal",
@@ -25,7 +28,7 @@ const posts = [
     id: 2,
     user: {
       name: "Robert Martinez",
-      avatar: "RM",
+      avatar: avatarRobert,
       time: "5 hours ago"
     },
     discovery: "Seven-spotted Ladybug",
@@ -37,7 +40,7 @@ const posts = [
     id: 3,
     user: {
       name: "Patricia Wong",
-      avatar: "PW",
+      avatar: avatarPatricia,
       time: "1 day ago"
     },
     discovery: "Bumblebee on Lavender",
@@ -102,8 +105,9 @@ const PostCard = ({ post }: { post: typeof posts[0] }) => {
       {/* User Info */}
       <div className="p-4 flex items-center gap-3">
         <Avatar className="w-12 h-12 border-2 border-primary/10">
+          <AvatarImage src={post.user.avatar} alt={post.user.name} />
           <AvatarFallback className="bg-primary/10 text-primary font-semibold">
-            {post.user.avatar}
+            {post.user.name.split(' ').map(n => n[0]).join('')}
           </AvatarFallback>
         </Avatar>
         <div className="flex-1">

@@ -3,6 +3,11 @@ import { ArrowLeft, Send, Image, Smile, Camera } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useNavigate, useParams } from "react-router-dom";
+import avatarMargaret from "@/assets/avatar-margaret.jpg";
+import avatarRobert from "@/assets/avatar-robert.jpg";
+import avatarDorothy from "@/assets/avatar-dorothy.jpg";
+import avatarPatricia from "@/assets/avatar-patricia.jpg";
+import avatarLinda from "@/assets/avatar-linda.jpg";
 
 interface Message {
   id: string;
@@ -20,11 +25,11 @@ const Chat = () => {
 
   // Mock friend data based on ID
   const friendData: Record<string, { name: string; avatar: string; isOnline: boolean }> = {
-    "1": { name: "Margaret Wilson", avatar: "👵", isOnline: true },
-    "2": { name: "Robert Chen", avatar: "👴", isOnline: true },
-    "3": { name: "Dorothy Harris", avatar: "👩‍🦳", isOnline: false },
-    "4": { name: "James Martinez", avatar: "👨‍🦳", isOnline: false },
-    "5": { name: "Helen Brown", avatar: "👵", isOnline: false },
+    "1": { name: "Margaret Wilson", avatar: avatarMargaret, isOnline: true },
+    "2": { name: "Robert Chen", avatar: avatarRobert, isOnline: true },
+    "3": { name: "Dorothy Harris", avatar: avatarDorothy, isOnline: false },
+    "4": { name: "James Martinez", avatar: avatarPatricia, isOnline: false },
+    "5": { name: "Helen Brown", avatar: avatarLinda, isOnline: false },
   };
 
   const friend = friendData[friendId || "1"] || friendData["1"];
@@ -80,8 +85,8 @@ const Chat = () => {
           </button>
           
           <div className="relative">
-            <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center text-xl">
-              {friend.avatar}
+            <div className="w-11 h-11 rounded-full overflow-hidden">
+              <img src={friend.avatar} alt={friend.name} className="w-full h-full object-cover" />
             </div>
             {friend.isOnline && (
               <div className="absolute bottom-0 right-0 w-3 h-3 bg-success rounded-full border-2 border-card" />
