@@ -99,29 +99,29 @@ const Quests = () => {
                 className="overflow-hidden border-0 shadow-card cursor-pointer hover:shadow-lg transition-shadow"
                 onClick={() => navigate(`/quest/${quest.id}`)}
               >
-                <div className="relative h-40">
-                  <img 
-                    src={quest.image} 
-                    alt={quest.title} 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-3 right-3 bg-success/90 text-success-foreground px-3 py-1 rounded-full text-sm font-medium">
-                    {quest.difficulty}
+                <div className="flex">
+                  <div className="w-28 h-28 flex-shrink-0">
+                    <img 
+                      src={quest.image} 
+                      alt={quest.title} 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-bold text-foreground mb-1">{quest.title}</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
-                    {quest.description}
-                  </p>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <span>⏱️</span>
-                      <span>{quest.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <span>📍</span>
-                      <span>{quest.location}</span>
+                  <div className="p-4 flex-1">
+                    <h3 className="text-lg font-bold text-foreground mb-1">{quest.title}</h3>
+                    <p className="text-muted-foreground text-sm mb-2 line-clamp-2">
+                      {quest.description}
+                    </p>
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                      <span className={`px-2 py-0.5 rounded-full font-medium ${
+                        quest.difficulty === "Easy" ? "bg-success/10 text-success" : 
+                        quest.difficulty === "Medium" ? "bg-accent/10 text-accent" : 
+                        "bg-secondary/10 text-secondary"
+                      }`}>
+                        {quest.difficulty}
+                      </span>
+                      <span>⏱️ {quest.duration}</span>
+                      <span>📍 {quest.location}</span>
                     </div>
                   </div>
                 </div>
