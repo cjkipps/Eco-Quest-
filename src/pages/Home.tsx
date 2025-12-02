@@ -1,10 +1,13 @@
-import { Sun, Target, Award, Trophy, Camera } from "lucide-react";
+import { Sun, Target, Award, Trophy, Camera, Play } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { BottomNav } from "@/components/BottomNav";
 import { useNavigate } from "react-router-dom";
 import gardenHero from "@/assets/garden-hero.jpg";
 import monarchButterfly from "@/assets/monarch-butterfly.jpg";
+import beeLavender from "@/assets/bee-lavender.jpg";
+import daffodils from "@/assets/daffodils.jpg";
+import ladybug from "@/assets/ladybug.jpg";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -13,6 +16,16 @@ const Home = () => {
   const questProgress = 8;
   const totalQuests = 20;
   const progressPercentage = (questProgress / totalQuests) * 100;
+
+  const continueQuests = [
+    { id: "spring-blooms", title: "Spring Blooms", progress: 60, image: daffodils, tasksLeft: "2 flowers left" },
+    { id: "busy-bees", title: "Busy Bees", progress: 33, image: beeLavender, tasksLeft: "2 bees left" },
+  ];
+
+  const featuredQuests = [
+    { id: "pollinator", title: "Find a Pollinator", description: "Spot a butterfly or bee visiting flowers", duration: "15-20 min", location: "Garden Area", difficulty: "Easy", image: monarchButterfly },
+    { id: "ladybug-hunt", title: "Ladybug Hunt", description: "Discover ladybugs in the garden", duration: "10-15 min", location: "Rose Garden", difficulty: "Easy", image: ladybug },
+  ];
 
   return (
     <div className="min-h-screen bg-background pb-24">
@@ -73,50 +86,79 @@ const Home = () => {
         </Card>
       </div>
 
-      {/* Featured Quest */}
+      {/* Continue Quest Section */}
+      {continueQuests.length > 0 && (
+        <div className="px-6 mt-8">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center">
+              <Play className="w-4 h-4 text-secondary" />
+            </div>
+            <h2 className="text-xl font-bold text-foreground">Continue Quest</h2>
+          </div>
+          
+          <div className="space-y-3">
+            {continueQuests.map((quest) => (
+              <Card 
+                key={quest.id}
+                className="overflow-hidden border-0 shadow-card cursor-pointer hover:shadow-lg transition-shadow"
+                onClick={() => navigate(`/quest/active/${quest.id}`)}
+              >
+                <div className="flex items-center gap-4 p-4">
+                  <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+                    <img src={quest.image} alt={quest.title} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-foreground mb-1">{quest.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-2">{quest.tasksLeft}</p>
+                    <Progress value={quest.progress} className="h-2" />
+                  </div>
+                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                    <Play className="w-5 h-5 text-primary-foreground ml-0.5" />
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Featured Quests */}
       <div className="px-6 mt-8">
         <div className="flex items-center gap-2 mb-4">
           <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
             <span className="text-xl">🌿</span>
           </div>
-          <h2 className="text-2xl font-bold text-foreground">Today's Featured Quest</h2>
+          <h2 className="text-xl font-bold text-foreground">Featured Quests</h2>
         </div>
         
-        <Card 
-          className="overflow-hidden border-0 shadow-card cursor-pointer hover:shadow-lg transition-shadow"
-          onClick={() => navigate('/quest/pollinator')}
-        >
-          <div className="relative h-48">
-            <img 
-              src={monarchButterfly} 
-              alt="Monarch Butterfly" 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute top-4 right-4 bg-success/90 text-success-foreground px-3 py-1 rounded-full text-sm font-medium">
-              Easy
-            </div>
-          </div>
-          <div className="p-5">
-            <h3 className="text-xl font-bold text-foreground mb-2">Find a Pollinator</h3>
-            <p className="text-muted-foreground mb-4">
-              Spot a butterfly or bee visiting flowers
-            </p>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-              <div className="flex items-center gap-1">
-                <span>⏱️</span>
-                <span>15-20 min</span>
+        <div className="space-y-4">
+          {featuredQuests.map((quest) => (
+            <Card 
+              key={quest.id}
+              className="overflow-hidden border-0 shadow-card cursor-pointer hover:shadow-lg transition-shadow"
+              onClick={() => navigate(`/quest/${quest.id}`)}
+            >
+              <div className="relative h-40">
+                <img 
+                  src={quest.image} 
+                  alt={quest.title} 
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="flex items-center gap-1">
-                <span>📍</span>
-                <span>Garden Area</span>
+              <div className="p-4">
+                <h3 className="text-lg font-bold text-foreground mb-1">{quest.title}</h3>
+                <p className="text-muted-foreground text-sm mb-3">{quest.description}</p>
+                <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <span className="px-2 py-0.5 rounded-full bg-success/10 text-success text-xs font-medium">
+                    {quest.difficulty}
+                  </span>
+                  <span>⏱️ {quest.duration}</span>
+                  <span>📍 {quest.location}</span>
+                </div>
               </div>
-            </div>
-            <button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 px-4 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 shadow-button">
-              <Camera className="w-5 h-5" />
-              Start Quest
-            </button>
-          </div>
-        </Card>
+            </Card>
+          ))}
+        </div>
       </div>
 
       <BottomNav />
