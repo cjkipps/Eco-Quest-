@@ -1,4 +1,4 @@
-import { Home, Camera, Award, Users } from "lucide-react";
+import { Home, Camera, Award, Users, User } from "lucide-react";
 import { NavLink } from "./NavLink";
 import { cn } from "@/lib/utils";
 
@@ -6,7 +6,8 @@ const navItems = [
   { to: "/", icon: Home, label: "Home" },
   { to: "/quests", icon: Camera, label: "Quests" },
   { to: "/badges", icon: Award, label: "Badges" },
-  { to: "/community", icon: Users, label: "Community" },
+  { to: "/friends", icon: Users, label: "Friends" },
+  { to: "/profile", icon: User, label: "Profile" },
 ];
 
 export const BottomNav = () => {
