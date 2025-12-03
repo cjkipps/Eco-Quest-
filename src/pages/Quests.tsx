@@ -139,6 +139,7 @@ const Quests = () => {
               <Button 
                 size="lg" 
                 className="w-full h-14 text-base font-semibold rounded-xl shadow-button"
+                onClick={() => navigate('/quest/active/identify')}
               >
                 Open Camera
               </Button>
