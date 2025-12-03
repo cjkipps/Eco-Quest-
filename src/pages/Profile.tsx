@@ -5,7 +5,7 @@ import { Progress } from "@/components/ui/progress";
 import { BottomNav } from "@/components/BottomNav";
 import { useNavigate } from "react-router-dom";
 import gardenHero from "@/assets/garden-hero.jpg";
-import avatarLinda from "@/assets/avatar-linda.jpg";
+import avatarLindaThompson from "@/assets/avatar-linda-thompson.jpg";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ const Profile = () => {
         <div className="flex items-end gap-4 mb-4">
           <div className="w-28 h-28 rounded-full border-4 border-card shadow-card overflow-hidden">
             <img 
-              src={avatarLinda} 
+              src={avatarLindaThompson} 
               alt="Linda Thompson" 
               className="w-full h-full object-cover"
             />
