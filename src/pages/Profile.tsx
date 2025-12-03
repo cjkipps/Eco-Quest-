@@ -5,6 +5,7 @@ import { Progress } from "@/components/ui/progress";
 import { BottomNav } from "@/components/BottomNav";
 import { useNavigate } from "react-router-dom";
 import gardenHero from "@/assets/garden-hero.jpg";
+import avatarLinda from "@/assets/avatar-linda.jpg";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -39,10 +40,12 @@ const Profile = () => {
       {/* Profile Info */}
       <div className="px-6 -mt-16 relative z-10">
         <div className="flex items-end gap-4 mb-4">
-          <div className="w-28 h-28 rounded-full bg-primary/20 border-4 border-card shadow-card flex items-center justify-center overflow-hidden">
-            <div className="w-full h-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center">
-              <span className="text-5xl">👩‍🦳</span>
-            </div>
+          <div className="w-28 h-28 rounded-full border-4 border-card shadow-card overflow-hidden">
+            <img 
+              src={avatarLinda} 
+              alt="Linda Thompson" 
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="flex-1 pb-2">
             <h1 className="text-2xl font-bold text-foreground">Linda Thompson</h1>
