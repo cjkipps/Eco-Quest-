@@ -32,7 +32,10 @@ const Profile = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/80" />
-        <button className="absolute top-4 right-4 w-10 h-10 bg-card/80 backdrop-blur rounded-full flex items-center justify-center">
+        <button 
+          onClick={() => navigate('/settings')}
+          className="absolute top-4 right-4 w-10 h-10 bg-card/80 backdrop-blur rounded-full flex items-center justify-center"
+        >
           <Settings className="w-5 h-5 text-foreground" />
         </button>
       </div>
