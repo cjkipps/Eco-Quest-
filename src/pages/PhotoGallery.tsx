@@ -49,6 +49,62 @@ const photos = [
     location: "Flower Bed",
     quest: "Spring Blooms"
   },
+  {
+    id: 6,
+    image: cardinal,
+    title: "Blue Jay Visit",
+    date: "Nov 15, 2024",
+    location: "Bird Feeder",
+    quest: "Bird Watching"
+  },
+  {
+    id: 7,
+    image: daffodils,
+    title: "Yellow Tulips",
+    date: "Nov 12, 2024",
+    location: "Flower Bed",
+    quest: "Spring Blooms"
+  },
+  {
+    id: 8,
+    image: monarchButterfly,
+    title: "Swallowtail Butterfly",
+    date: "Nov 10, 2024",
+    location: "Garden Area",
+    quest: "Find a Pollinator"
+  },
+  {
+    id: 9,
+    image: beeLavender,
+    title: "Honeybee at Work",
+    date: "Nov 8, 2024",
+    location: "Wildflower Meadow",
+    quest: "Busy Bees"
+  },
+  {
+    id: 10,
+    image: ladybug,
+    title: "Spotted Ladybug",
+    date: "Nov 5, 2024",
+    location: "Rose Garden",
+    quest: "Ladybug Hunt"
+  },
+  {
+    id: 11,
+    image: cardinal,
+    title: "Golden Hour Sunset",
+    date: "Nov 3, 2024",
+    location: "Open Field",
+    quest: "Sunset Seeker"
+  },
+  {
+    id: 12,
+    image: daffodils,
+    title: "Oak Leaf Detail",
+    date: "Nov 1, 2024",
+    location: "Walking Path",
+    quest: "Leaf Collection"
+  },
 ];
 
 const PhotoGallery = () => {

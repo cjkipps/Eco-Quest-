@@ -47,6 +47,42 @@ const quests = [
     difficulty: "Easy",
     image: ladybug,
   },
+  {
+    id: "bird-watching",
+    title: "Bird Watching",
+    description: "Spot and identify local birds",
+    duration: "30-45 min",
+    location: "Bird Feeder",
+    difficulty: "Medium",
+    image: monarchButterfly,
+  },
+  {
+    id: "leaf-collection",
+    title: "Leaf Collection",
+    description: "Collect photos of 6 different leaf shapes",
+    duration: "25-35 min",
+    location: "Walking Path",
+    difficulty: "Easy",
+    image: daffodils,
+  },
+  {
+    id: "sunset-seeker",
+    title: "Sunset Seeker",
+    description: "Capture the perfect golden hour photo",
+    duration: "20-30 min",
+    location: "Open Field",
+    difficulty: "Easy",
+    image: beeLavender,
+  },
+  {
+    id: "mushroom-mystery",
+    title: "Mushroom Mystery",
+    description: "Find and photograph wild mushrooms",
+    duration: "30-40 min",
+    location: "Shaded Woods",
+    difficulty: "Hard",
+    image: ladybug,
+  },
 ];
 
 const Quests = () => {
