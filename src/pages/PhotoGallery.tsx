@@ -122,8 +122,8 @@ const PhotoGallery = () => {
       {/* Header */}
       <div className="bg-card shadow-soft px-4 py-4 flex items-center gap-4">
         <button 
-          onClick={() => navigate(-1)}
-          className="w-10 h-10 bg-muted rounded-full flex items-center justify-center"
+          onClick={() => navigate('/profile')}
+          className="w-10 h-10 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors"
         >
           <ArrowLeft className="w-5 h-5 text-foreground" />
         </button>
