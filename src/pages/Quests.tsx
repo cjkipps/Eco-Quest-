@@ -9,6 +9,10 @@ import monarchButterfly from "@/assets/monarch-butterfly.jpg";
 import daffodils from "@/assets/daffodils.jpg";
 import beeLavender from "@/assets/bee-lavender.jpg";
 import ladybug from "@/assets/ladybug.jpg";
+import birdCardinalFeeder from "@/assets/bird-cardinal-feeder.jpg";
+import autumnLeaves from "@/assets/autumn-leaves.jpg";
+import goldenSunset from "@/assets/golden-sunset.jpg";
+import wildMushrooms from "@/assets/wild-mushrooms.jpg";
 
 const quests = [
   {
@@ -54,7 +58,7 @@ const quests = [
     duration: "30-45 min",
     location: "Bird Feeder",
     difficulty: "Medium",
-    image: monarchButterfly,
+    image: birdCardinalFeeder,
   },
   {
     id: "leaf-collection",
@@ -63,7 +67,7 @@ const quests = [
     duration: "25-35 min",
     location: "Walking Path",
     difficulty: "Easy",
-    image: daffodils,
+    image: autumnLeaves,
   },
   {
     id: "sunset-seeker",
@@ -72,7 +76,7 @@ const quests = [
     duration: "20-30 min",
     location: "Open Field",
     difficulty: "Easy",
-    image: beeLavender,
+    image: goldenSunset,
   },
   {
     id: "mushroom-mystery",
@@ -81,7 +85,7 @@ const quests = [
     duration: "30-40 min",
     location: "Shaded Woods",
     difficulty: "Hard",
-    image: ladybug,
+    image: wildMushrooms,
   },
 ];
 
