@@ -145,6 +145,7 @@ const Profile = () => {
           <Button 
             variant="outline" 
             className="w-full justify-start gap-3 h-12 border-border"
+            onClick={() => navigate('/gallery')}
           >
             <Camera className="w-5 h-5 text-primary" />
             <span>My Photo Gallery</span>

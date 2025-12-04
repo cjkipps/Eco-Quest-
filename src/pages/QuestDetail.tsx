@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useNavigate, useParams } from "react-router-dom";
 import monarchButterfly from "@/assets/monarch-butterfly.jpg";
+import daffodils from "@/assets/daffodils.jpg";
+import beeLavender from "@/assets/bee-lavender.jpg";
+import ladybug from "@/assets/ladybug.jpg";
 
 const questDetails = {
   pollinator: {
@@ -23,6 +26,66 @@ const questDetails = {
       "Take a clear photo of the pollinator",
       "Capture it on a flower if possible",
       "Note the type: butterfly, bee, or other"
+    ]
+  },
+  "spring-blooms": {
+    title: "Spring Blooms",
+    description: "Discover and photograph the beautiful flowers blooming in spring",
+    image: daffodils,
+    duration: "20-30 min",
+    location: "Flower Beds",
+    difficulty: "Easy",
+    points: 40,
+    tips: [
+      "Look for daffodils, tulips, and crocuses",
+      "Morning light makes for the best flower photos",
+      "Get close to capture the details of petals",
+      "Check both sunny and shaded areas"
+    ],
+    goals: [
+      "Photograph 3 different types of spring flowers",
+      "Capture at least one flower in full bloom",
+      "Find a flower bud just starting to open"
+    ]
+  },
+  "busy-bees": {
+    title: "Busy Bees",
+    description: "Observe hardworking bees as they collect pollen from flowers",
+    image: beeLavender,
+    duration: "15-25 min",
+    location: "Lavender Patch",
+    difficulty: "Medium",
+    points: 60,
+    tips: [
+      "Bees love lavender, sunflowers, and clover",
+      "Stay calm and still - bees won't bother you",
+      "Watch for their fuzzy yellow pollen baskets",
+      "Warm, sunny days are best for bee activity"
+    ],
+    goals: [
+      "Take a photo of a bee on a flower",
+      "Observe a bee collecting pollen",
+      "Count how many bees you can spot in 5 minutes"
+    ]
+  },
+  "ladybug-hunt": {
+    title: "Ladybug Hunt",
+    description: "Search for ladybugs hiding on leaves and stems in the garden",
+    image: ladybug,
+    duration: "20-30 min",
+    location: "Vegetable Garden",
+    difficulty: "Medium",
+    points: 55,
+    tips: [
+      "Check the underside of leaves",
+      "Ladybugs love aphid-infested plants",
+      "Look on roses, tomatoes, and bean plants",
+      "They're most active on warm afternoons"
+    ],
+    goals: [
+      "Find and photograph a ladybug",
+      "Count the spots on a ladybug",
+      "Spot a ladybug eating an aphid (bonus!)"
     ]
   }
 };
@@ -120,7 +183,7 @@ const QuestDetail = () => {
         <Button 
           size="lg" 
           className="w-full h-14 text-lg font-semibold rounded-xl shadow-button"
-          onClick={() => navigate('/quest/active/pollinator')}
+          onClick={() => navigate(`/quest/active/${id || 'pollinator'}`)}
         >
           <Camera className="w-6 h-6 mr-2" />
           Start Quest
