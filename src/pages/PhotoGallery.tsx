@@ -7,6 +7,13 @@ import beeLavender from "@/assets/bee-lavender.jpg";
 import ladybug from "@/assets/ladybug.jpg";
 import cardinal from "@/assets/cardinal.jpg";
 import daffodils from "@/assets/daffodils.jpg";
+import birdCardinalFeeder from "@/assets/bird-cardinal-feeder.jpg";
+import blueJay from "@/assets/blue-jay.jpg";
+import yellowTulips from "@/assets/yellow-tulips.jpg";
+import swallowtailButterfly from "@/assets/swallowtail-butterfly.jpg";
+import goldenSunset from "@/assets/golden-sunset.jpg";
+import autumnLeaves from "@/assets/autumn-leaves.jpg";
+import wildMushrooms from "@/assets/wild-mushrooms.jpg";
 
 const photos = [
   {
@@ -51,7 +58,7 @@ const photos = [
   },
   {
     id: 6,
-    image: cardinal,
+    image: blueJay,
     title: "Blue Jay Visit",
     date: "Nov 15, 2024",
     location: "Bird Feeder",
@@ -59,7 +66,7 @@ const photos = [
   },
   {
     id: 7,
-    image: daffodils,
+    image: yellowTulips,
     title: "Yellow Tulips",
     date: "Nov 12, 2024",
     location: "Flower Bed",
@@ -67,7 +74,7 @@ const photos = [
   },
   {
     id: 8,
-    image: monarchButterfly,
+    image: swallowtailButterfly,
     title: "Swallowtail Butterfly",
     date: "Nov 10, 2024",
     location: "Garden Area",
@@ -75,23 +82,23 @@ const photos = [
   },
   {
     id: 9,
-    image: beeLavender,
-    title: "Honeybee at Work",
+    image: birdCardinalFeeder,
+    title: "Cardinal at Feeder",
     date: "Nov 8, 2024",
-    location: "Wildflower Meadow",
-    quest: "Busy Bees"
+    location: "Bird Feeder",
+    quest: "Bird Watching"
   },
   {
     id: 10,
-    image: ladybug,
-    title: "Spotted Ladybug",
+    image: wildMushrooms,
+    title: "Forest Mushrooms",
     date: "Nov 5, 2024",
-    location: "Rose Garden",
-    quest: "Ladybug Hunt"
+    location: "Shaded Woods",
+    quest: "Mushroom Mystery"
   },
   {
     id: 11,
-    image: cardinal,
+    image: goldenSunset,
     title: "Golden Hour Sunset",
     date: "Nov 3, 2024",
     location: "Open Field",
@@ -99,8 +106,8 @@ const photos = [
   },
   {
     id: 12,
-    image: daffodils,
-    title: "Oak Leaf Detail",
+    image: autumnLeaves,
+    title: "Autumn Leaf Collection",
     date: "Nov 1, 2024",
     location: "Walking Path",
     quest: "Leaf Collection"
