@@ -1,11 +1,14 @@
 import { Trophy, Share2, Home as HomeIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { useNavigate } from "react-router-dom";
-import monarchButterfly from "@/assets/monarch-butterfly.jpg";
+import { useNavigate, useParams } from "react-router-dom";
+import { questDetails } from "./QuestDetail";
 
 const QuestComplete = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
+  
+  const quest = questDetails[id as keyof typeof questDetails] || questDetails.pollinator;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-success/5 to-background flex flex-col items-center justify-center p-6">
@@ -35,29 +38,29 @@ const QuestComplete = () => {
       <Card className="w-full max-w-md overflow-hidden border-0 shadow-lg mb-6 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150">
         <div className="relative">
           <img 
-            src={monarchButterfly} 
-            alt="Captured Monarch Butterfly" 
+            src={quest.image} 
+            alt={quest.capturedName} 
             className="w-full h-64 object-cover"
           />
           <div className="absolute top-4 right-4 bg-success text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
-            +50 points
+            +{quest.points} points
           </div>
         </div>
         <div className="p-5">
-          <h2 className="text-2xl font-bold mb-2">Monarch Butterfly</h2>
+          <h2 className="text-2xl font-bold mb-2">{quest.capturedName}</h2>
           <p className="text-muted-foreground mb-4">
-            You discovered a beautiful pollinator! Monarch butterflies are important for plant reproduction.
+            {quest.capturedDescription}
           </p>
           
           {/* Stats */}
           <div className="bg-muted/50 rounded-xl p-4 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-muted-foreground">Species Identified</span>
-              <span className="font-semibold">Monarch Butterfly</span>
+              <span className="font-semibold">{quest.capturedName}</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-muted-foreground">Location</span>
-              <span className="font-semibold">Garden Area</span>
+              <span className="font-semibold">{quest.location}</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-muted-foreground">Quest Time</span>
@@ -71,12 +74,12 @@ const QuestComplete = () => {
       <Card className="w-full max-w-md border-0 shadow-lg p-5 mb-8 bg-gradient-to-br from-primary/5 to-success/5 animate-in fade-in slide-in-from-bottom-12 duration-700 delay-300">
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center flex-shrink-0">
-            <span className="text-3xl">🌸</span>
+            <span className="text-3xl">{quest.badge.emoji}</span>
           </div>
           <div className="flex-1">
             <div className="text-sm text-success font-semibold mb-1">New Badge Unlocked!</div>
-            <h3 className="text-lg font-bold">Pollinator Pal</h3>
-            <p className="text-sm text-muted-foreground">Spotted 5 pollinators</p>
+            <h3 className="text-lg font-bold">{quest.badge.name}</h3>
+            <p className="text-sm text-muted-foreground">{quest.badge.description}</p>
           </div>
         </div>
       </Card>
