@@ -1,4 +1,4 @@
-import { Heart, MessageCircle, Filter, X, Send } from "lucide-react";
+import { Heart, MessageCircle, Filter, X, Send, Check } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { BottomNav } from "@/components/BottomNav";
@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import cardinal from "@/assets/cardinal.jpg";
 import ladybug from "@/assets/ladybug.jpg";
 import beeLavender from "@/assets/bee-lavender.jpg";
@@ -84,8 +85,20 @@ const initialPosts: Post[] = [
   },
 ];
 
+const filterOptions = ["All", "Birds", "Insects", "Plants", "Other"];
+
 const Community = () => {
   const [posts, setPosts] = useState<Post[]>(initialPosts);
+  const [selectedFilter, setSelectedFilter] = useState("All");
+  const [filterOpen, setFilterOpen] = useState(false);
+
+  const filteredPosts = posts.filter(post => {
+    if (selectedFilter === "All") return true;
+    if (selectedFilter === "Birds") return post.discovery.toLowerCase().includes("cardinal") || post.discovery.toLowerCase().includes("bird");
+    if (selectedFilter === "Insects") return post.discovery.toLowerCase().includes("ladybug") || post.discovery.toLowerCase().includes("bee") || post.discovery.toLowerCase().includes("butterfly");
+    if (selectedFilter === "Plants") return post.discovery.toLowerCase().includes("flower") || post.discovery.toLowerCase().includes("lavender");
+    return true;
+  });
 
   const handleLike = (postId: number) => {
     setPosts(posts.map(post => {
@@ -123,14 +136,47 @@ const Community = () => {
       <div className="bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground px-6 py-8">
         <div className="flex items-center justify-between mb-2">
           <h1 className="text-3xl font-bold">Community</h1>
-          <Button 
-            size="sm" 
-            variant="ghost" 
-            className="text-secondary-foreground hover:bg-white/20"
-          >
-            <Filter className="w-5 h-5" />
-          </Button>
+          <Sheet open={filterOpen} onOpenChange={setFilterOpen}>
+            <SheetTrigger asChild>
+              <Button 
+                size="sm" 
+                variant="ghost" 
+                className="text-secondary-foreground hover:bg-white/20"
+              >
+                <Filter className="w-5 h-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="bottom" className="rounded-t-3xl">
+              <SheetHeader>
+                <SheetTitle>Filter Posts</SheetTitle>
+              </SheetHeader>
+              <div className="py-4 space-y-2">
+                {filterOptions.map((option) => (
+                  <button
+                    key={option}
+                    onClick={() => {
+                      setSelectedFilter(option);
+                      setFilterOpen(false);
+                    }}
+                    className={`w-full flex items-center justify-between p-4 rounded-xl transition-colors ${
+                      selectedFilter === option 
+                        ? 'bg-primary/10 text-primary' 
+                        : 'bg-muted/50 hover:bg-muted'
+                    }`}
+                  >
+                    <span className="font-medium">{option}</span>
+                    {selectedFilter === option && <Check className="w-5 h-5" />}
+                  </button>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
+        {selectedFilter !== "All" && (
+          <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm mt-2">
+            Filtered: {selectedFilter}
+          </span>
+        )}
         <p className="text-secondary-foreground/90">See what others are discovering</p>
       </div>
 
@@ -147,7 +193,7 @@ const Community = () => {
           </TabsList>
 
           <TabsContent value="recent" className="space-y-4 mt-0">
-            {posts.map((post) => (
+            {filteredPosts.map((post) => (
               <PostCard 
                 key={post.id} 
                 post={post} 
@@ -158,7 +204,7 @@ const Community = () => {
           </TabsContent>
 
           <TabsContent value="week" className="space-y-4 mt-0">
-            {posts.map((post) => (
+            {filteredPosts.map((post) => (
               <PostCard 
                 key={post.id} 
                 post={post} 
