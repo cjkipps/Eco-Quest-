@@ -1,17 +1,21 @@
 import { Camera, X, CheckCircle2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
+import { questDetails } from "./QuestDetail";
 
 const ActiveQuest = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
   const [captured, setCaptured] = useState(false);
+  
+  const quest = questDetails[id as keyof typeof questDetails] || questDetails.pollinator;
 
   const handleCapture = () => {
     setCaptured(true);
     setTimeout(() => {
-      navigate('/quest/complete/pollinator');
+      navigate(`/quest/complete/${id || 'pollinator'}`);
     }, 1500);
   };
 
@@ -34,10 +38,10 @@ const ActiveQuest = () => {
             <Card className="absolute top-8 left-4 right-4 p-4 bg-white/95 backdrop-blur border-0 shadow-lg">
               <h2 className="font-bold text-lg mb-1 flex items-center gap-2">
                 <Camera className="w-5 h-5 text-primary" />
-                Find a Pollinator
+                {quest.title}
               </h2>
               <p className="text-sm text-muted-foreground">
-                Frame a butterfly or bee in the viewfinder and tap to capture
+                {quest.description}
               </p>
             </Card>
 
@@ -83,7 +87,7 @@ const ActiveQuest = () => {
           </div>
           
           <p className="text-center text-sm text-muted-foreground mt-4">
-            Tip: Look for butterflies on colorful flowers
+            Tip: {quest.tips[0]}
           </p>
         </div>
       )}

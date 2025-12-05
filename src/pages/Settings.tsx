@@ -2,14 +2,36 @@ import { ArrowLeft, User, Bell, Moon, Lock, HelpCircle, LogOut, ChevronRight, Vo
 import { Card } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Settings = () => {
   const navigate = useNavigate();
   const [notifications, setNotifications] = useState(true);
   const [sounds, setSounds] = useState(true);
-  const [darkMode, setDarkMode] = useState(false);
-  const [largeText, setLargeText] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    return document.documentElement.classList.contains('dark');
+  });
+  const [largeText, setLargeText] = useState(() => {
+    return document.documentElement.classList.contains('large-text');
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
+  useEffect(() => {
+    if (largeText) {
+      document.documentElement.classList.add('large-text');
+      document.documentElement.style.fontSize = '18px';
+    } else {
+      document.documentElement.classList.remove('large-text');
+      document.documentElement.style.fontSize = '16px';
+    }
+  }, [largeText]);
 
   const settingsSections = [
     {

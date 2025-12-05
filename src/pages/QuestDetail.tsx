@@ -6,8 +6,12 @@ import monarchButterfly from "@/assets/monarch-butterfly.jpg";
 import daffodils from "@/assets/daffodils.jpg";
 import beeLavender from "@/assets/bee-lavender.jpg";
 import ladybug from "@/assets/ladybug.jpg";
+import birdCardinal from "@/assets/bird-cardinal-feeder.jpg";
+import autumnLeaves from "@/assets/autumn-leaves.jpg";
+import goldenSunset from "@/assets/golden-sunset.jpg";
+import wildMushrooms from "@/assets/wild-mushrooms.jpg";
 
-const questDetails = {
+export const questDetails = {
   pollinator: {
     title: "Find a Pollinator",
     description: "Spot a butterfly or bee visiting flowers in the garden",
@@ -16,6 +20,9 @@ const questDetails = {
     location: "Garden Area",
     difficulty: "Easy",
     points: 50,
+    capturedName: "Monarch Butterfly",
+    capturedDescription: "You discovered a beautiful pollinator! Monarch butterflies are important for plant reproduction.",
+    badge: { emoji: "🌸", name: "Pollinator Pal", description: "Spotted 5 pollinators" },
     tips: [
       "Look for colorful flowers - they attract pollinators",
       "Check around lavender and coneflowers",
@@ -36,6 +43,9 @@ const questDetails = {
     location: "Flower Beds",
     difficulty: "Easy",
     points: 40,
+    capturedName: "Golden Daffodils",
+    capturedDescription: "You found beautiful spring daffodils! These cheerful flowers are one of the first signs of spring.",
+    badge: { emoji: "🌷", name: "Bloom Spotter", description: "Photographed 3 spring flowers" },
     tips: [
       "Look for daffodils, tulips, and crocuses",
       "Morning light makes for the best flower photos",
@@ -56,6 +66,9 @@ const questDetails = {
     location: "Lavender Patch",
     difficulty: "Medium",
     points: 60,
+    capturedName: "Honeybee on Lavender",
+    capturedDescription: "You captured a busy bee at work! Bees are essential pollinators that help our gardens thrive.",
+    badge: { emoji: "🐝", name: "Bee Friend", description: "Observed 3 bees collecting pollen" },
     tips: [
       "Bees love lavender, sunflowers, and clover",
       "Stay calm and still - bees won't bother you",
@@ -76,6 +89,9 @@ const questDetails = {
     location: "Vegetable Garden",
     difficulty: "Medium",
     points: 55,
+    capturedName: "Seven-Spotted Ladybug",
+    capturedDescription: "You found a lucky ladybug! These helpful beetles eat garden pests and are a gardener's best friend.",
+    badge: { emoji: "🐞", name: "Ladybug Hunter", description: "Found 3 ladybugs" },
     tips: [
       "Check the underside of leaves",
       "Ladybugs love aphid-infested plants",
@@ -86,6 +102,98 @@ const questDetails = {
       "Find and photograph a ladybug",
       "Count the spots on a ladybug",
       "Spot a ladybug eating an aphid (bonus!)"
+    ]
+  },
+  "bird-watching": {
+    title: "Bird Watching",
+    description: "Spot and identify beautiful birds in their natural habitat",
+    image: birdCardinal,
+    duration: "30-45 min",
+    location: "Bird Sanctuary",
+    difficulty: "Medium",
+    points: 65,
+    capturedName: "Northern Cardinal",
+    capturedDescription: "You spotted a stunning cardinal! These vibrant red birds are beloved backyard visitors.",
+    badge: { emoji: "🐦", name: "Bird Watcher", description: "Identified 5 bird species" },
+    tips: [
+      "Bring binoculars for better viewing",
+      "Early morning is the best time for bird watching",
+      "Listen for bird calls to locate them",
+      "Stay quiet and move slowly"
+    ],
+    goals: [
+      "Photograph a bird in flight or perched",
+      "Identify the species by color and markings",
+      "Observe feeding behavior"
+    ]
+  },
+  "leaf-collection": {
+    title: "Leaf Collection",
+    description: "Collect and identify different types of leaves in autumn",
+    image: autumnLeaves,
+    duration: "25-35 min",
+    location: "Forest Trail",
+    difficulty: "Easy",
+    points: 45,
+    capturedName: "Autumn Maple Leaves",
+    capturedDescription: "You collected beautiful autumn leaves! The vibrant colors come from pigments revealed as chlorophyll fades.",
+    badge: { emoji: "🍂", name: "Leaf Collector", description: "Collected 10 different leaves" },
+    tips: [
+      "Look for leaves of different shapes and colors",
+      "Oak, maple, and birch leaves are easy to find",
+      "Gently press leaves to preserve them",
+      "Note which trees the leaves came from"
+    ],
+    goals: [
+      "Collect 5 different types of leaves",
+      "Find a leaf with unusual colors",
+      "Photograph leaves still on the tree"
+    ]
+  },
+  "sunset-seeker": {
+    title: "Sunset Seeker",
+    description: "Capture the perfect golden hour sunset photo",
+    image: goldenSunset,
+    duration: "30-40 min",
+    location: "Hilltop Viewpoint",
+    difficulty: "Easy",
+    points: 50,
+    capturedName: "Golden Hour Sunset",
+    capturedDescription: "You captured a breathtaking sunset! The golden and orange hues create nature's most beautiful light show.",
+    badge: { emoji: "🌅", name: "Sunset Chaser", description: "Captured 3 stunning sunsets" },
+    tips: [
+      "Arrive 30 minutes before sunset",
+      "Find a location with an unobstructed view",
+      "Clouds can make sunsets more dramatic",
+      "Try different angles and compositions"
+    ],
+    goals: [
+      "Photograph the sun near the horizon",
+      "Capture silhouettes against the sunset",
+      "Document the changing colors"
+    ]
+  },
+  "mushroom-mystery": {
+    title: "Mushroom Mystery",
+    description: "Discover and photograph wild mushrooms in their habitat",
+    image: wildMushrooms,
+    duration: "35-45 min",
+    location: "Shaded Woods",
+    difficulty: "Hard",
+    points: 75,
+    capturedName: "Forest Mushrooms",
+    capturedDescription: "You discovered fascinating fungi! Mushrooms play a vital role in breaking down organic matter in forests.",
+    badge: { emoji: "🍄", name: "Fungi Finder", description: "Found 5 mushroom species" },
+    tips: [
+      "Look in damp, shaded areas",
+      "Check around fallen logs and tree bases",
+      "Never touch or eat wild mushrooms",
+      "Photograph from multiple angles"
+    ],
+    goals: [
+      "Find and photograph a mushroom",
+      "Document the habitat where you found it",
+      "Note the size, color, and shape"
     ]
   }
 };
