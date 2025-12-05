@@ -15,6 +15,11 @@ import Settings from "./pages/Settings";
 import Friends from "./pages/Friends";
 import Chat from "./pages/Chat";
 import PhotoGallery from "./pages/PhotoGallery";
+import EditProfile from "./pages/EditProfile";
+import PrivacySecurity from "./pages/PrivacySecurity";
+import HelpFAQ from "./pages/HelpFAQ";
+import IdentifyActive from "./pages/IdentifyActive";
+import SpeciesIdentified from "./pages/SpeciesIdentified";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +43,11 @@ const App = () => (
           <Route path="/friends" element={<Friends />} />
           <Route path="/chat/:friendId" element={<Chat />} />
           <Route path="/gallery" element={<PhotoGallery />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/privacy-security" element={<PrivacySecurity />} />
+          <Route path="/help-faq" element={<HelpFAQ />} />
+          <Route path="/identify-active" element={<IdentifyActive />} />
+          <Route path="/species-identified" element={<SpeciesIdentified />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

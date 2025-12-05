@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { toast } from "@/hooks/use-toast";
 
 const Settings = () => {
   const navigate = useNavigate();
@@ -32,6 +33,30 @@ const Settings = () => {
       document.documentElement.style.fontSize = '16px';
     }
   }, [largeText]);
+
+  const handleLogout = () => {
+    toast({
+      title: "Logged Out",
+      description: "You have been successfully logged out.",
+    });
+    navigate('/');
+  };
+
+  const handleNavigate = (label: string) => {
+    switch (label) {
+      case "Edit Profile":
+        navigate('/edit-profile');
+        break;
+      case "Privacy & Security":
+        navigate('/privacy-security');
+        break;
+      case "Help & FAQ":
+        navigate('/help-faq');
+        break;
+      default:
+        break;
+    }
+  };
 
   const settingsSections = [
     {
@@ -84,18 +109,22 @@ const Settings = () => {
                   <div 
                     key={item.label}
                     className="flex items-center gap-4 p-4 bg-card hover:bg-muted/50 transition-colors cursor-pointer"
+                    onClick={() => item.action === "navigate" && handleNavigate(item.label)}
                   >
                     <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
                     <span className="flex-1 font-medium text-foreground">{item.label}</span>
-                    {item.action === "toggle" ? (
+                  {item.action === "toggle" ? (
                       <Switch 
                         checked={item.value} 
                         onCheckedChange={item.setValue}
                       />
                     ) : (
-                      <ChevronRight className="w-5 h-5 text-muted-foreground" />
+                      <ChevronRight 
+                        className="w-5 h-5 text-muted-foreground" 
+                        onClick={() => handleNavigate(item.label)}
+                      />
                     )}
                   </div>
                 );
@@ -106,7 +135,10 @@ const Settings = () => {
 
         {/* Logout Button */}
         <Card className="border-0 shadow-card overflow-hidden">
-          <button className="flex items-center gap-4 p-4 w-full bg-card hover:bg-destructive/5 transition-colors">
+          <button 
+            onClick={handleLogout}
+            className="flex items-center gap-4 p-4 w-full bg-card hover:bg-destructive/5 transition-colors"
+          >
             <div className="w-10 h-10 bg-destructive/10 rounded-full flex items-center justify-center">
               <LogOut className="w-5 h-5 text-destructive" />
             </div>

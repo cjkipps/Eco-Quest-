@@ -8,6 +8,7 @@ import monarchButterfly from "@/assets/monarch-butterfly.jpg";
 import beeLavender from "@/assets/bee-lavender.jpg";
 import daffodils from "@/assets/daffodils.jpg";
 import ladybug from "@/assets/ladybug.jpg";
+import wildMushrooms from "@/assets/wild-mushrooms.jpg";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ const Home = () => {
   const featuredQuests = [
     { id: "pollinator", title: "Find a Pollinator", description: "Spot a butterfly or bee visiting flowers", duration: "15-20 min", location: "Garden Area", difficulty: "Easy", image: monarchButterfly },
     { id: "ladybug-hunt", title: "Ladybug Hunt", description: "Discover ladybugs in the garden", duration: "10-15 min", location: "Rose Garden", difficulty: "Easy", image: ladybug },
+    { id: "mushroom-mystery", title: "Mushroom Mystery", description: "Find and photograph wild mushrooms", duration: "30-40 min", location: "Shaded Woods", difficulty: "Hard", image: wildMushrooms },
   ];
 
   return (
