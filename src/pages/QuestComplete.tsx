@@ -89,7 +89,13 @@ const QuestComplete = () => {
         <Button 
           size="lg" 
           className="w-full h-14 text-base font-semibold rounded-xl shadow-button"
-          onClick={() => navigate('/community')}
+          onClick={() => navigate('/create-post', { 
+            state: { 
+              image: quest.image, 
+              title: quest.capturedName,
+              type: 'quest'
+            } 
+          })}
         >
           <Share2 className="w-5 h-5 mr-2" />
           Share with Community

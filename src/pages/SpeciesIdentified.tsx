@@ -27,9 +27,12 @@ const SpeciesIdentified = () => {
   };
 
   const handleShare = () => {
-    toast({
-      title: "Shared!",
-      description: "Your discovery has been shared to the Community.",
+    navigate('/create-post', { 
+      state: { 
+        image: speciesInfo.image, 
+        title: speciesInfo.name,
+        type: 'identify'
+      } 
     });
   };
 
@@ -136,7 +139,7 @@ const SpeciesIdentified = () => {
           </Button>
           <Button 
             variant="outline"
-            onClick={() => navigate('/quests')}
+            onClick={() => navigate('/identify-active')}
             className="w-full h-14 text-lg font-semibold rounded-xl"
           >
             Identify Another

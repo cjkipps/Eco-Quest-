@@ -1,11 +1,11 @@
-import { Heart, MessageCircle, Filter, X, Send, Check } from "lucide-react";
+import { Heart, MessageCircle, Filter, Send, Check } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { BottomNav } from "@/components/BottomNav";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import cardinal from "@/assets/cardinal.jpg";
 import ladybug from "@/assets/ladybug.jpg";
@@ -13,6 +13,7 @@ import beeLavender from "@/assets/bee-lavender.jpg";
 import avatarLinda from "@/assets/avatar-linda.jpg";
 import avatarRobert from "@/assets/avatar-robert.jpg";
 import avatarPatricia from "@/assets/avatar-patricia.jpg";
+import avatarLindaThompson from "@/assets/avatar-linda-thompson.jpg";
 
 interface Comment {
   id: number;
@@ -33,6 +34,7 @@ interface Post {
   likes: number;
   comments: Comment[];
   liked: boolean;
+  category?: string;
 }
 
 const initialPosts: Post[] = [
@@ -51,6 +53,7 @@ const initialPosts: Post[] = [
       { id: 2, user: "Patricia", text: "I love cardinals!", time: "30m ago" },
     ],
     liked: false,
+    category: "Birds"
   },
   {
     id: 2,
@@ -66,6 +69,7 @@ const initialPosts: Post[] = [
       { id: 1, user: "Linda", text: "So cute!", time: "4h ago" },
     ],
     liked: false,
+    category: "Insects"
   },
   {
     id: 3,
@@ -82,6 +86,7 @@ const initialPosts: Post[] = [
       { id: 2, user: "Robert", text: "Amazing detail", time: "20h ago" },
     ],
     liked: false,
+    category: "Insects"
   },
 ];
 
@@ -92,8 +97,31 @@ const Community = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [filterOpen, setFilterOpen] = useState(false);
 
+  // Load user posts from sessionStorage
+  useEffect(() => {
+    const userPosts = JSON.parse(sessionStorage.getItem('userPosts') || '[]');
+    if (userPosts.length > 0) {
+      const formattedPosts: Post[] = userPosts.map((p: any) => ({
+        id: p.id,
+        user: {
+          name: "Linda Thompson",
+          avatar: avatarLindaThompson,
+          time: p.timeAgo || "Just now"
+        },
+        discovery: p.caption || p.title || "New Discovery",
+        image: p.image,
+        likes: p.likes || 0,
+        comments: p.comments || [],
+        liked: false,
+        category: p.category || "Other"
+      }));
+      setPosts([...formattedPosts, ...initialPosts]);
+    }
+  }, []);
+
   const filteredPosts = posts.filter(post => {
     if (selectedFilter === "All") return true;
+    if (post.category) return post.category === selectedFilter;
     if (selectedFilter === "Birds") return post.discovery.toLowerCase().includes("cardinal") || post.discovery.toLowerCase().includes("bird");
     if (selectedFilter === "Insects") return post.discovery.toLowerCase().includes("ladybug") || post.discovery.toLowerCase().includes("bee") || post.discovery.toLowerCase().includes("butterfly");
     if (selectedFilter === "Plants") return post.discovery.toLowerCase().includes("flower") || post.discovery.toLowerCase().includes("lavender");
