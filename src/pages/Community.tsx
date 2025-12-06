@@ -166,15 +166,7 @@ const Community = () => {
       <div className="bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground px-6 py-8">
         <div className="flex items-center justify-between mb-2">
           <h1 className="text-3xl font-bold">Community</h1>
-          <div className="flex items-center gap-2">
-            <Button 
-              size="sm" 
-              variant="ghost" 
-              className="text-secondary-foreground hover:bg-white/20"
-              onClick={() => navigate('/create-post')}
-            >
-              <Plus className="w-5 h-5" />
-            </Button>
+          <div className="flex items-center gap-1">
             <Sheet open={filterOpen} onOpenChange={setFilterOpen}>
               <SheetTrigger asChild>
                 <Button 
@@ -185,6 +177,14 @@ const Community = () => {
                   <Filter className="w-5 h-5" />
                 </Button>
               </SheetTrigger>
+            <Button 
+              size="icon" 
+              variant="ghost" 
+              className="text-secondary-foreground hover:bg-white/20 w-10 h-10"
+              onClick={() => navigate('/create-post')}
+            >
+              <Plus className="w-7 h-7" />
+            </Button>
             <SheetContent side="bottom" className="rounded-t-3xl">
               <SheetHeader>
                 <SheetTitle>Filter Posts</SheetTitle>
