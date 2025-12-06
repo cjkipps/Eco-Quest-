@@ -1,5 +1,4 @@
-import { Heart, MessageCircle, Filter, Send, Check, Plus } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Heart, MessageCircle, Filter, Send, Check } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { BottomNav } from "@/components/BottomNav";
@@ -94,7 +93,6 @@ const initialPosts: Post[] = [
 const filterOptions = ["All", "Birds", "Insects", "Plants", "Other"];
 
 const Community = () => {
-  const navigate = useNavigate();
   const [posts, setPosts] = useState<Post[]>(initialPosts);
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [filterOpen, setFilterOpen] = useState(false);
@@ -166,25 +164,16 @@ const Community = () => {
       <div className="bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground px-6 py-8">
         <div className="flex items-center justify-between mb-2">
           <h1 className="text-3xl font-bold">Community</h1>
-          <div className="flex items-center gap-1">
-            <Sheet open={filterOpen} onOpenChange={setFilterOpen}>
-              <SheetTrigger asChild>
-                <Button 
-                  size="sm" 
-                  variant="ghost" 
-                  className="text-secondary-foreground hover:bg-white/20"
-                >
-                  <Filter className="w-5 h-5" />
-                </Button>
-              </SheetTrigger>
-            <Button 
-              size="icon" 
-              variant="ghost" 
-              className="text-secondary-foreground hover:bg-white/20 w-10 h-10"
-              onClick={() => navigate('/create-post')}
-            >
-              <Plus className="w-7 h-7" />
-            </Button>
+          <Sheet open={filterOpen} onOpenChange={setFilterOpen}>
+            <SheetTrigger asChild>
+              <Button 
+                size="sm" 
+                variant="ghost" 
+                className="text-secondary-foreground hover:bg-white/20"
+              >
+                <Filter className="w-5 h-5" />
+              </Button>
+            </SheetTrigger>
             <SheetContent side="bottom" className="rounded-t-3xl">
               <SheetHeader>
                 <SheetTitle>Filter Posts</SheetTitle>
@@ -210,7 +199,6 @@ const Community = () => {
               </div>
             </SheetContent>
           </Sheet>
-          </div>
         </div>
         {selectedFilter !== "All" && (
           <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm mt-2">
