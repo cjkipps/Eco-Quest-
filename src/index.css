@@ -1,5 +1,25 @@
 @tailwind base;
 
+/* Mobile app shell */
+.app-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: hsl(220 13% 91%);
+  display: flex;
+  justify-content: center;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 390px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  background-color: hsl(var(--background));
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.12);
+  overflow-x: hidden;
+}
+
 /* Safe area for mobile devices */
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .pb-safe {

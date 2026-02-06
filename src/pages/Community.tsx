@@ -159,7 +159,7 @@ const Community = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-24">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <div className="bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground px-6 py-8">
         <div className="flex items-center justify-between mb-2">
@@ -244,6 +244,7 @@ const Community = () => {
         </Tabs>
       </div>
 
+      <div className="flex-1" />
       <BottomNav />
     </div>
   );

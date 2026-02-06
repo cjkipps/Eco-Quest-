@@ -23,7 +23,7 @@ const Profile = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background pb-24">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Header with Cover Photo */}
       <div className="relative h-[180px] overflow-hidden">
         <img 
@@ -154,6 +154,7 @@ const Profile = () => {
         </div>
       </div>
 
+      <div className="flex-1" />
       <BottomNav />
     </div>
   );

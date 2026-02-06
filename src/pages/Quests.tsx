@@ -107,7 +107,7 @@ const Quests = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background pb-24">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <div className="bg-gradient-to-br from-primary to-nature-dark text-primary-foreground px-6 py-8">
         <h1 className="text-3xl font-bold mb-2">Nature Quests</h1>
@@ -237,6 +237,7 @@ const Quests = () => {
         </Tabs>
       </div>
 
+      <div className="flex-1" />
       <BottomNav />
     </div>
   );
