@@ -30,7 +30,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background pb-24">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Hero Section */}
       <div className="relative h-[280px] overflow-hidden">
         <img 
@@ -163,6 +163,7 @@ const Home = () => {
         </div>
       </div>
 
+      <div className="flex-1" />
       <BottomNav />
     </div>
   );

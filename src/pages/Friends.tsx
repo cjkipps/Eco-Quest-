@@ -57,7 +57,7 @@ const Friends = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background pb-24">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <div className="bg-card shadow-soft sticky top-0 z-20">
         <div className="px-4 py-4">
@@ -204,6 +204,7 @@ const Friends = () => {
         </Tabs>
       </div>
 
+      <div className="flex-1" />
       <BottomNav />
     </div>
   );

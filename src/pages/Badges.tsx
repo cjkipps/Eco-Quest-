@@ -66,7 +66,7 @@ const Badges = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-background pb-24">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <div className="bg-gradient-to-br from-accent to-accent/70 text-accent-foreground px-6 py-8">
         <div className="flex items-center gap-3 mb-2">
@@ -108,6 +108,7 @@ const Badges = () => {
         </div>
       </div>
 
+      <div className="flex-1" />
       <BottomNav />
     </div>
   );
