@@ -9,6 +9,7 @@ import beeLavender from "@/assets/bee-lavender.jpg";
 import daffodils from "@/assets/daffodils.jpg";
 import ladybug from "@/assets/ladybug.jpg";
 import wildMushrooms from "@/assets/wild-mushrooms.jpg";
+import logo from "@/assets/logo.png";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
         <div className="absolute inset-0 flex flex-col justify-center px-6 text-white">
           <div className="flex items-center gap-2 mb-2">
-            <Sun className="w-6 h-6" />
+            <img src={logo} alt="EcoQuest logo" width={32} height={32} className="w-8 h-8 drop-shadow" />
             <span className="text-base opacity-90">{greeting}, {userName}!</span>
           </div>
           <h1 className="text-4xl font-bold mb-2">Ready to Explore?</h1>
